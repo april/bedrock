@@ -7,6 +7,7 @@ import pytest
 from pages.firefox.os.devices import DevicesPage
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 def test_open_close_modal(base_url, selenium):
@@ -17,6 +18,7 @@ def test_open_close_modal(base_url, selenium):
     modal.close()
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 def test_open_close_phone(base_url, selenium):
@@ -29,6 +31,7 @@ def test_open_close_phone(base_url, selenium):
     assert not phone.is_features_displayed
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 def test_open_close_tv(base_url, selenium):
@@ -41,6 +44,7 @@ def test_open_close_tv(base_url, selenium):
     assert not tv.is_features_displayed
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 def test_toggle_detail_tabs(base_url, selenium):

@@ -18,6 +18,7 @@ def test_navigation(base_url, selenium):
     assert technology_page.seed_url in selenium.current_url
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 @pytest.mark.viewport('mobile')

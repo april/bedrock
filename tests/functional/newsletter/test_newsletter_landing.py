@@ -10,6 +10,7 @@ from pages.newsletter.firefox import FirefoxNewsletterPage
 from pages.newsletter.mozilla import MozillaNewsletterPage
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 @pytest.mark.parametrize('page_class', [FirefoxNewsletterPage, MozillaNewsletterPage])
@@ -24,6 +25,7 @@ def test_default_values(page_class, base_url, selenium):
     assert page.is_privacy_policy_link_displayed
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.smoke
 @pytest.mark.nondestructive
 def test_default_values_developer_newsletter(base_url, selenium):
@@ -36,6 +38,7 @@ def test_default_values_developer_newsletter(base_url, selenium):
     assert page.is_privacy_policy_link_displayed
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.nondestructive
 @pytest.mark.parametrize('page_class', [FirefoxNewsletterPage, MozillaNewsletterPage])
 def test_successful_sign_up(page_class, base_url, selenium):
@@ -49,6 +52,7 @@ def test_successful_sign_up(page_class, base_url, selenium):
     assert page.sign_up_successful
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.nondestructive
 def test_successful_sign_up_developer_newsletter(base_url, selenium):
     page = DeveloperNewsletterPage(selenium, base_url).open()
@@ -60,6 +64,7 @@ def test_successful_sign_up_developer_newsletter(base_url, selenium):
     assert page.sign_up_successful
 
 
+@pytest.mark.skipif(reason='Marionette flaky')
 @pytest.mark.nondestructive
 @pytest.mark.parametrize('page_class', [DeveloperNewsletterPage, FirefoxNewsletterPage, MozillaNewsletterPage])
 def test_sign_up_fails_when_missing_required_fields(page_class, base_url, selenium):
